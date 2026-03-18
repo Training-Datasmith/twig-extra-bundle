@@ -16,7 +16,7 @@ use Symfony\Component\DependencyInjection\Argument\TaggedIteratorArgument;
 use Twig\Extra\Markdown\LeagueMarkdown;
 use Twig\Extra\TwigExtraBundle\LeagueCommonMarkConverterFactory;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
     $service = \function_exists('Symfony\Component\DependencyInjection\Loader\Configurator\service') ? 'Symfony\Component\DependencyInjection\Loader\Configurator\service' : 'Symfony\Component\DependencyInjection\Loader\Configurator\ref';
     $container->services()
         ->set('twig.markdown.league_common_mark_converter_factory', LeagueCommonMarkConverterFactory::class)

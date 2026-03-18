@@ -13,7 +13,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Twig\Extra\Html\HtmlExtension;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
     $container->services()
         ->set('twig.extension.html', HtmlExtension::class)
             ->tag('twig.extension')

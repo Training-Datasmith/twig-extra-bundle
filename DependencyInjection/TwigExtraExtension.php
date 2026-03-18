@@ -18,24 +18,12 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 use Twig\Extra\TwigExtraBundle\Extensions;
 
-if (!method_exists(ContainerBuilder::class, 'getAutoconfiguredAttributes')) {
-    /** @internal */
-    trait TwigExtraExtensionTrait
+/** @internal */
+trait TwigExtraExtensionTrait
+{
+    public function load(array $configs, ContainerBuilder $container): void
     {
-        public function load(array $configs, ContainerBuilder $container): void
-        {
-            $this->doLoad($configs, $container);
-        }
-    }
-} else {
-    /** @internal */
-    trait TwigExtraExtensionTrait
-    {
-        /** @return void */
-        public function load(array $configs, ContainerBuilder $container)
-        {
-            $this->doLoad($configs, $container);
-        }
+        $this->doLoad($configs, $container);
     }
 }
 

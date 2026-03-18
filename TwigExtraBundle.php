@@ -16,25 +16,12 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Twig\Extra\TwigExtraBundle\DependencyInjection\Compiler\MissingExtensionSuggestorPass;
 
-if (method_exists(KernelInterface::class, 'getShareDir')) {
-    class TwigExtraBundle extends Bundle
+class TwigExtraBundle extends Bundle
+{
+    public function build(ContainerBuilder $container): void
     {
-        public function build(ContainerBuilder $container): void
-        {
-            parent::build($container);
+        parent::build($container);
 
-            $container->addCompilerPass(new MissingExtensionSuggestorPass());
-        }
-    }
-} else {
-    class TwigExtraBundle extends Bundle
-    {
-        /** @return void */
-        public function build(ContainerBuilder $container)
-        {
-            parent::build($container);
-
-            $container->addCompilerPass(new MissingExtensionSuggestorPass());
-        }
+        $container->addCompilerPass(new MissingExtensionSuggestorPass());
     }
 }

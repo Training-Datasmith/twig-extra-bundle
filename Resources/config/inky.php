@@ -13,7 +13,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Twig\Extra\Inky\InkyExtension;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
     $container->services()
         ->set('twig.extension.inky', InkyExtension::class)
             ->tag('twig.extension')

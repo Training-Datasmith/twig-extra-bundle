@@ -13,7 +13,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Twig\Extra\CssInliner\CssInlinerExtension;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
     $container->services()
         ->set('twig.extension.cssinliner', CssInlinerExtension::class)
             ->tag('twig.extension')

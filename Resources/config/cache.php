@@ -18,7 +18,7 @@ use Symfony\Contracts\Cache\TagAwareCacheInterface;
 use Twig\Extra\Cache\CacheExtension;
 use Twig\Extra\Cache\CacheRuntime;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
     $service = \function_exists('Symfony\Component\DependencyInjection\Loader\Configurator\service') ? 'Symfony\Component\DependencyInjection\Loader\Configurator\service' : 'Symfony\Component\DependencyInjection\Loader\Configurator\ref';
     $container->services()
         ->set('twig.extension.cache', CacheExtension::class)

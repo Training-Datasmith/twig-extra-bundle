@@ -19,16 +19,11 @@ use League\CommonMark\Extension\ExtensionInterface;
  */
 final class LeagueCommonMarkConverterFactory
 {
-    private $extensions;
-    private $config;
-
     /**
      * @param ExtensionInterface[] $extensions
      */
-    public function __construct(iterable $extensions, array $config = [])
+    public function __construct(private readonly iterable $extensions, private readonly array $config = [])
     {
-        $this->extensions = $extensions;
-        $this->config = $config;
     }
 
     public function __invoke(): CommonMarkConverter

@@ -13,7 +13,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
     $container->services()
         ->set('twig.missing_extension_suggestor', MissingExtensionSuggestor::class)
     ;
